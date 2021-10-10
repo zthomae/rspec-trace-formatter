@@ -1,0 +1,4 @@
+pre-commit:
+  commands:
+    standardrb:
+      run: bundle exec standardrb --force-exclusion --fix {staged_files} && git add {staged_files}
