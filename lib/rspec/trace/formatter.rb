@@ -9,7 +9,7 @@ require_relative "version"
 
 module RSpec
   module Trace
-    class Formatter < RSpec::Core::Formatters::BaseTextFormatter
+    class Formatter < RSpec::Core::Formatters::BaseFormatter
       RSpec::Core::Formatters.register(
         self,
         :start,
