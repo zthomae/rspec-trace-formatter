@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require "opentelemetry/sdk"
-require "opentelemetry/exporter/otlp"
+require "active_support/time"
+require "active_support/json"
 require "rspec/core"
 require "rspec/core/formatters/base_text_formatter"
 
@@ -19,73 +19,72 @@ module RSpec
       )
 
       def start(notification)
-        # TODO: This is a bad idea...
-        OpenTelemetry::SDK.configure do |c|
-          c.service_name = "rspec" # TODO: Configure
-        end
-        @tracer_provider = OpenTelemetry.tracer_provider
-        @tracer_provider.sampler = OpenTelemetry::SDK::Trace::Samplers::ALWAYS_ON
-        @tracer = @tracer_provider.tracer("rspec-trace-formatter", RSpec::Trace::VERSION)
-        # TODO:
-        # - Configure span name
-        # - Use load time to backpedal start time?
-        @spans = []
-        @current_span_key = OpenTelemetry::Trace.const_get(:CURRENT_SPAN_KEY)
-        @contexts = [OpenTelemetry::Context.empty]
-        @tokens = []
-        @spans = [@tracer.start_span("rspec", kind: :server).add_attributes("count" => notification.count)]
+        output.puts(JSON.dump({
+          timestamp: current_timestamp,
+          event: :start,
+          count: notification.count,
+          load_time: notification.load_time
+        }))
       end
 
       def example_group_started(notification)
-        create_span(notification.group.description)
+        output.puts(JSON.dump({
+          timestamp: current_timestamp,
+          event: :example_group_started,
+          group: notification.group.description
+        }))
       end
 
       def example_group_finished(notification)
-        complete_span
+        output.puts(JSON.dump({
+          timestamp: current_timestamp,
+          event: :example_group_finished,
+          group: notification.group.description
+        }))
       end
 
       def example_started(notification)
-        create_span(notification.example.description)
+        output.puts(JSON.dump({
+          timestamp: current_timestamp,
+          event: :example_started,
+          example: notification.example.description
+        }))
       end
 
       def example_passed(notification)
-        complete_span
+        output.puts(JSON.dump({
+          timestamp: current_timestamp,
+          event: :example_passed,
+          example: notification.example.description
+        }))
       end
 
       def example_pending(notification)
-        complete_span do |span|
-          span.add_event("Pending")
-        end
+        output.puts(JSON.dump({
+          timestamp: current_timestamp,
+          event: :example_pending,
+          example: notification.example.description
+        }))
       end
 
       def example_failed(notification)
-        complete_span do |span|
-          span.status = OpenTelemetry::Trace::Status.error
-        end
+        output.puts(JSON.dump({
+          timestamp: current_timestamp,
+          event: :example_failed,
+          example: notification.example.description,
+          message_lines: notification.example.message_lines,
+          backtrace: notification.example.exception.backtrace
+        }))
       end
 
-      def stop(notification)
-        @spans.pop.finish
-        @tracer_provider.force_flush
+      def stop(_notification)
+        output.puts(JSON.dump({timestamp: current_timestamp, event: :stop}))
       end
 
       private
 
-      def create_span(name, kind: :internal)
-        @tracer.start_span(name, with_parent: @contexts.last, kind: kind).tap do |span|
-          @spans.push(span)
-          @contexts.push(@contexts.last.set_value(@current_span_key, span))
-          @tokens.push(OpenTelemetry::Context.attach(@contexts.last))
-        end
-      end
-
-      def complete_span
-        @spans.pop.tap do |span|
-          yield span if block_given?
-          span.finish
-          @contexts.pop
-          OpenTelemetry::Context.detach(@tokens.pop)
-        end
+      def current_timestamp
+        Time.current.as_json
       end
     end
   end

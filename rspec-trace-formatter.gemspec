@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.authors = ["Zach Thomae"]
   spec.email = ["zach@thomae.co"]
 
-  spec.summary = "Formatter for RSpec to represent test runs as OpenTelemetry traces"
-  spec.description = "Formatter for RSpec to represent test runs as OpenTelemetry traces"
+  spec.summary = "Formatter for RSpec to represent test runs as events for traces"
+  spec.description = "Formatter for RSpec to represent test runs as events for traces"
   spec.homepage = "https://github.com/zthomae/rspec-trace-formatter"
   spec.license = "MIT"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.4.0")
@@ -21,8 +21,10 @@ Gem::Specification.new do |spec|
   # Specify which files should be added to the gem when it is released.
   spec.files = Dir["{lib}/**/*"]
 
+  spec.add_runtime_dependency "activesupport", "~> 6.0"
   spec.add_runtime_dependency "opentelemetry-api", "~> 1.0"
   spec.add_runtime_dependency "opentelemetry-exporter-otlp", "~> 0.20"
+  spec.add_runtime_dependency "rspec-core", "~> 3.0"
 
   spec.add_development_dependency "bundler", "~> 2.1"
   spec.add_development_dependency "standard", "~> 1.3.0"
