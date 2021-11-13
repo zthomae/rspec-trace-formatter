@@ -40,16 +40,21 @@ module RSpec
             # - Use load time to backpedal start time?
             create_span(name: "rspec", timestamp: event[:timestamp]) do |span|
               span.add_attributes(
-                "count" => event[:count],
-                "load_time" => event[:load_time]
+                "rspec.count" => event[:count],
+                "rspec.load_time" => event[:load_time],
+                "rspec.type" => "suite"
               )
             end
           when :example_group_started
-            create_span(name: event[:group], timestamp: event[:timestamp])
+            create_span(name: event[:group], timestamp: event[:timestamp]) do |span|
+              span.add_attributes("rspec.type" => "example_group")
+            end
           when :example_group_finished
             complete_span(timestamp: event[:timestamp])
           when :example_started
-            create_span(name: event[:example], timestamp: event[:timestamp])
+            create_span(name: event[:example], timestamp: event[:timestamp]) do |span|
+              span.add_attributes("rspec.type" => "example")
+            end
           when :example_passed
             complete_span(timestamp: event[:timestamp])
           when :example_pending
