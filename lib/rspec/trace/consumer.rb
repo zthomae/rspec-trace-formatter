@@ -63,7 +63,12 @@ module RSpec
             end
           when :example_failed
             complete_span(timestamp: event[:timestamp]) do |span|
-              # TODO: Use error information
+              event_attributes = {
+                "exception.type" => event.dig(:exception, :type),
+                "exception.message" => event.dig(:exception, :message),
+                "exception.stacktrace" => event.dig(:exception, :backtrace)
+              }
+              span.add_event("exception", attributes: event_attributes)
               span.status = OpenTelemetry::Trace::Status.error
             end
           when :stop

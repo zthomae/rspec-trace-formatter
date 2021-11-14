@@ -72,8 +72,11 @@ module RSpec
           timestamp: current_timestamp,
           event: :example_failed,
           example: notification.example.description,
-          message_lines: notification.example.message_lines,
-          backtrace: notification.example.exception.backtrace
+          exception: {
+            message: notification.example.exception.message,
+            type: notification.example.exception.class.name,
+            backtrace: notification.example.exception.full_message(highlight: false, order: :top).encode("UTF-8", invalid: :replace, undef: :replace, replace: "�")
+          }
         }))
       end
 
