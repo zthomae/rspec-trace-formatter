@@ -34,14 +34,18 @@ module RSpec
           end
 
           case event[:event].to_sym
-          when :start
+          when :initiated
             # TODO:
-            # - Configure span name
-            # - Use load time to backpedal start time?
-            create_span(name: "rspec", timestamp: event[:timestamp]) do |span|
+            # - Configure root span name
+            create_span(name: "rspec", timestamp: event[:timestamp])
+            create_span(name: "examples loading", timestamp: event[:timestamp]) do |span|
+              span.add_attributes("rspec.type" => "loading")
+            end
+          when :start
+            complete_span(timestamp: event[:timestamp])
+            create_span(name: "examples running", timestamp: event[:timestamp]) do |span|
               span.add_attributes(
                 "rspec.count" => event[:count],
-                "rspec.load_time" => event[:load_time],
                 "rspec.type" => "suite"
               )
             end
@@ -72,7 +76,7 @@ module RSpec
               span.status = OpenTelemetry::Trace::Status.error
             end
           when :stop
-            @spans.pop.finish(end_timestamp: event[:timestamp])
+            complete_span(timestamp: event[:timestamp]) until @spans.empty?
             @tracer_provider.force_flush
             exit
           end
