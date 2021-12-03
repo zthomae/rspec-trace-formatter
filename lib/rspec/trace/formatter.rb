@@ -35,7 +35,7 @@ module RSpec
         output.puts(JSON.dump({
           timestamp: current_timestamp,
           event: :example_group_started,
-          group: notification.group.description
+          group: example_group_attributes(notification.group)
         }))
       end
 
@@ -43,7 +43,7 @@ module RSpec
         output.puts(JSON.dump({
           timestamp: current_timestamp,
           event: :example_group_finished,
-          group: notification.group.description
+          group: example_group_attributes(notification.group)
         }))
       end
 
@@ -51,7 +51,7 @@ module RSpec
         output.puts(JSON.dump({
           timestamp: current_timestamp,
           event: :example_started,
-          example: notification.example.description
+          example: example_attributes(notification.example)
         }))
       end
 
@@ -59,7 +59,7 @@ module RSpec
         output.puts(JSON.dump({
           timestamp: current_timestamp,
           event: :example_passed,
-          example: notification.example.description
+          example: example_attributes(notification.example)
         }))
       end
 
@@ -67,7 +67,7 @@ module RSpec
         output.puts(JSON.dump({
           timestamp: current_timestamp,
           event: :example_pending,
-          example: notification.example.description
+          example: example_attributes(notification.example)
         }))
       end
 
@@ -75,7 +75,7 @@ module RSpec
         output.puts(JSON.dump({
           timestamp: current_timestamp,
           event: :example_failed,
-          example: notification.example.description,
+          example: example_attributes(notification.example),
           exception: {
             message: notification.example.exception.message,
             type: notification.example.exception.class.name,
@@ -89,6 +89,24 @@ module RSpec
       end
 
       private
+
+      def example_group_attributes(example_group)
+        {
+          description: example_group.description,
+          described_class: example_group.described_class,
+          file_path: example_group.file_path,
+          location: example_group.location
+        }
+      end
+
+      def example_attributes(example)
+        {
+          description: example.description,
+          full_description: example.full_description,
+          file_path: example.file_path,
+          location: example.location
+        }
+      end
 
       def format_time(time)
         time.xmlschema(3)
