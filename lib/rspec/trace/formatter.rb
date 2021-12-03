@@ -19,7 +19,7 @@ module RSpec
       )
 
       def start(notification)
-        start_time = Time.now
+        start_time = current_time
         output.puts(JSON.dump({
           timestamp: format_time(start_time - notification.load_time.seconds),
           event: :initiated
@@ -94,8 +94,16 @@ module RSpec
         time.xmlschema(3)
       end
 
+      def current_time
+        if defined?(Timecop)
+          Time.now_without_mock_time
+        else
+          Time.now
+        end
+      end
+
       def current_timestamp
-        format_time(Time.now)
+        format_time(current_time)
       end
     end
   end

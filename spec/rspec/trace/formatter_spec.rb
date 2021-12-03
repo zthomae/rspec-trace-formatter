@@ -8,6 +8,8 @@ module RSpec
 
       before do
         Timecop.freeze
+        # This is evil
+        allow(Time).to receive(:now_without_mock_time).and_return(Time.now)
       end
 
       def expect_output_objects(*expected_objects)

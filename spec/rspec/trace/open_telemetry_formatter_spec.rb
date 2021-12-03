@@ -10,6 +10,8 @@ module RSpec
       before do
         allow(Subprocess::Process).to receive(:new).and_return(process)
         Timecop.freeze
+        # This is evil
+        allow(Time).to receive(:now_without_mock_time).and_return(Time.now)
       end
 
       it "constructs a formatter to output to an rspec-trace-consumer process" do
