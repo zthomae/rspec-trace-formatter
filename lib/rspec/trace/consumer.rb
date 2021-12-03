@@ -10,7 +10,7 @@ module RSpec
       def initialize(input)
         @input = input
         OpenTelemetry::SDK.configure do |c|
-          c.service_name = "rspec" # TODO: Configure
+          c.service_name = ENV.fetch("RSPEC_TRACE_FORMATTER_SERVICE_NAME", "rspec")
         end
         @tracer_provider = OpenTelemetry.tracer_provider
         @tracer_provider.sampler = OpenTelemetry::SDK::Trace::Samplers::ALWAYS_ON
@@ -35,9 +35,8 @@ module RSpec
 
           case event[:event].to_sym
           when :initiated
-            # TODO:
-            # - Configure root span name
-            create_span(name: "rspec", timestamp: event[:timestamp])
+            root_span_name = ENV.fetch("RSPEC_TRACE_FORMATTER_ROOT_SPAN_NAME", "rspec")
+            create_span(name: root_span_name, timestamp: event[:timestamp])
             create_span(name: "examples loading", timestamp: event[:timestamp]) do |span|
               span.add_attributes("rspec.type" => "loading")
             end

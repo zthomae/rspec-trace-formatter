@@ -2,6 +2,6 @@
 
 module RSpec
   module Trace
-    VERSION = "0.0.7.develop"
+    VERSION = "0.0.8.develop"
   end
 end
