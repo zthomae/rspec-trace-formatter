@@ -20,8 +20,8 @@ module RSpec
           152,
           517.2
         )
-        current_time = Time.current
-        start_time = Time.current - notification.load_time.seconds
+        current_time = Time.now
+        start_time = Time.now - notification.load_time.seconds
         formatter.start(notification)
         expect_output_objects(
           {timestamp: start_time.as_json, event: "initiated"},
@@ -37,7 +37,7 @@ module RSpec
         notification = RSpec::Core::Notifications::GroupNotification.new(example_group)
         formatter.example_group_started(notification)
         expect_output_objects(
-          {timestamp: Time.current.as_json, event: "example_group_started", group: "The best example group"}
+          {timestamp: Time.now.as_json, event: "example_group_started", group: "The best example group"}
         )
       end
 
@@ -49,7 +49,7 @@ module RSpec
         notification = RSpec::Core::Notifications::GroupNotification.new(example_group)
         formatter.example_group_finished(notification)
         expect_output_objects(
-          {timestamp: Time.current.as_json, event: "example_group_finished", group: "The worst example group"}
+          {timestamp: Time.now.as_json, event: "example_group_finished", group: "The worst example group"}
         )
       end
 
@@ -64,7 +64,7 @@ module RSpec
         )
         formatter.example_started(notification)
         expect_output_objects(
-          {timestamp: Time.current.as_json, event: "example_started", example: "Example 1"}
+          {timestamp: Time.now.as_json, event: "example_started", example: "Example 1"}
         )
       end
 
@@ -79,7 +79,7 @@ module RSpec
         )
         formatter.example_passed(notification)
         expect_output_objects(
-          {timestamp: Time.current.as_json, event: "example_passed", example: "Example 1"}
+          {timestamp: Time.now.as_json, event: "example_passed", example: "Example 1"}
         )
       end
 
@@ -94,7 +94,7 @@ module RSpec
         )
         formatter.example_pending(notification)
         expect_output_objects(
-          {timestamp: Time.current.as_json, event: "example_pending", example: "Example 1"}
+          {timestamp: Time.now.as_json, event: "example_pending", example: "Example 1"}
         )
       end
 
@@ -113,7 +113,7 @@ module RSpec
         formatter.example_failed(notification)
         expect_output_objects(
           {
-            timestamp: Time.current.as_json,
+            timestamp: Time.now.as_json,
             event: "example_failed",
             example: "Example 1",
             exception: {
@@ -128,7 +128,7 @@ module RSpec
       it "outputs a correct stop notification" do
         formatter.stop(nil)
         expect_output_objects(
-          {timestamp: Time.current.as_json, event: "stop"}
+          {timestamp: Time.now.as_json, event: "stop"}
         )
       end
     end

@@ -18,7 +18,7 @@ module RSpec
 
       it "prints an output object and waits for the process upon receiving the stop notification", :aggregate_failures do
         expect(process).to receive(:wait)
-        expect(stdin).to receive(:puts).with(JSON.dump({timestamp: Time.current.as_json, event: "stop"}))
+        expect(stdin).to receive(:puts).with(JSON.dump({timestamp: Time.now.as_json, event: "stop"}))
         formatter.stop(nil)
       end
     end

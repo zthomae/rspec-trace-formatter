@@ -24,12 +24,12 @@ Gem::Specification.new do |spec|
   spec.bindir = "exe"
   spec.executables = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
 
-  spec.add_runtime_dependency "activesupport", "~> 6.0"
   spec.add_runtime_dependency "opentelemetry-api", "~> 1.0"
   spec.add_runtime_dependency "opentelemetry-exporter-otlp", "~> 0.20"
   spec.add_runtime_dependency "rspec-core", "~> 3.0"
   spec.add_runtime_dependency "subprocess", "~> 1.0"
 
+  spec.add_development_dependency "activesupport", "~> 6.0"
   spec.add_development_dependency "bundler", "~> 2.1"
   spec.add_development_dependency "standard", "~> 1.3.0"
   spec.add_development_dependency "lefthook", "~> 0.7.7"
