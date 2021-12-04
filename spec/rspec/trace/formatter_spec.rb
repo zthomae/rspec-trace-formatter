@@ -107,12 +107,19 @@ module RSpec
       end
 
       it "outputs a correct example_passed notification" do
+        execution_result = double(
+          RSpec::Core::Example::ExecutionResult.class.name,
+          status: :passed,
+          pending_message: nil,
+          pending_fixed: nil
+        )
         example = double(
           RSpec::Core::Example.class.name,
           description: "Example 1",
           full_description: "This is Example 1",
           file_path: "/path/to/file.rb",
-          location: "/path/to/file.rb:123"
+          location: "/path/to/file.rb:123",
+          execution_result: execution_result
         )
         notification = double(
           RSpec::Core::Notifications::ExampleNotification.class.name,
@@ -127,19 +134,31 @@ module RSpec
               description: "Example 1",
               full_description: "This is Example 1",
               file_path: "/path/to/file.rb",
-              location: "/path/to/file.rb:123"
+              location: "/path/to/file.rb:123",
+              result: {
+                status: "passed",
+                pending_message: nil,
+                pending_fixed: nil
+              }
             }
           }
         )
       end
 
       it "outputs a correct example_pending notification" do
+        execution_result = double(
+          RSpec::Core::Example::ExecutionResult.class.name,
+          status: :pending,
+          pending_message: "Not ready to run this",
+          pending_fixed: false
+        )
         example = double(
           RSpec::Core::Example.class.name,
           description: "Example 1",
           full_description: "This is Example 1",
           file_path: "/path/to/file.rb",
-          location: "/path/to/file.rb:123"
+          location: "/path/to/file.rb:123",
+          execution_result: execution_result
         )
         notification = double(
           RSpec::Core::Notifications::ExampleNotification.class.name,
@@ -154,13 +173,24 @@ module RSpec
               description: "Example 1",
               full_description: "This is Example 1",
               file_path: "/path/to/file.rb",
-              location: "/path/to/file.rb:123"
+              location: "/path/to/file.rb:123",
+              result: {
+                status: "pending",
+                pending_message: "Not ready to run this",
+                pending_fixed: false
+              }
             }
           }
         )
       end
 
       it "outputs a correct example_failed notification" do
+        execution_result = double(
+          RSpec::Core::Example::ExecutionResult.class.name,
+          status: :failed,
+          pending_message: nil,
+          pending_fixed: nil
+        )
         exception = RuntimeError.new("Something went wrong")
         exception.set_backtrace(["/path/to/foo.rb:32", "/path/to/bar.rb:512"])
         example = double(
@@ -169,7 +199,8 @@ module RSpec
           exception: exception,
           full_description: "This is Example 1",
           file_path: "/path/to/file.rb",
-          location: "/path/to/file.rb:123"
+          location: "/path/to/file.rb:123",
+          execution_result: execution_result
         )
         notification = double(
           RSpec::Core::Notifications::ExampleNotification.class.name,
@@ -184,7 +215,12 @@ module RSpec
               description: "Example 1",
               full_description: "This is Example 1",
               file_path: "/path/to/file.rb",
-              location: "/path/to/file.rb:123"
+              location: "/path/to/file.rb:123",
+              result: {
+                status: "failed",
+                pending_message: nil,
+                pending_fixed: nil
+              }
             },
             exception: {
               message: "Something went wrong",

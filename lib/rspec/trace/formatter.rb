@@ -59,7 +59,7 @@ module RSpec
         output.puts(JSON.dump({
           timestamp: current_timestamp,
           event: :example_passed,
-          example: example_attributes(notification.example)
+          example: completed_example_attributes(notification.example)
         }))
       end
 
@@ -67,7 +67,7 @@ module RSpec
         output.puts(JSON.dump({
           timestamp: current_timestamp,
           event: :example_pending,
-          example: example_attributes(notification.example)
+          example: completed_example_attributes(notification.example)
         }))
       end
 
@@ -75,7 +75,7 @@ module RSpec
         output.puts(JSON.dump({
           timestamp: current_timestamp,
           event: :example_failed,
-          example: example_attributes(notification.example),
+          example: completed_example_attributes(notification.example),
           exception: {
             message: notification.example.exception.message,
             type: notification.example.exception.class.name,
@@ -106,6 +106,20 @@ module RSpec
           file_path: example.file_path,
           location: example.location
         }
+      end
+
+      def example_execution_result_attributes(execution_result)
+        {
+          status: execution_result.status,
+          pending_message: execution_result.pending_message,
+          pending_fixed: execution_result.pending_fixed
+        }
+      end
+
+      def completed_example_attributes(example)
+        example_attributes(example).merge({
+          result: example_execution_result_attributes(example.execution_result)
+        })
       end
 
       def format_time(time)

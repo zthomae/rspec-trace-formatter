@@ -43,41 +43,55 @@ module RSpec
           when :start
             complete_span(timestamp: event[:timestamp])
             create_span(name: "examples running", timestamp: event[:timestamp]) do |span|
-              span.add_attributes(
-                "rspec.count" => event[:count],
-                "rspec.type" => "suite"
+              add_attributes_to_span(
+                span: span,
+                attributes: {count: event[:count], type: "suite"},
+                attribute_prefix: "rspec"
               )
             end
           when :example_group_started
             create_span(name: event.dig(:group, :description), timestamp: event[:timestamp]) do |span|
-              group_attributes = event[:group].map do |key, value|
-                next if key == :description || value.nil?
-
-                ["rspec.#{key}", value]
-              end.compact.to_h
-
-              span.add_attributes(group_attributes.merge("rspec.type" => "example_group"))
+              add_attributes_to_span(
+                span: span,
+                attributes: event[:group].merge(type: "example_group"),
+                attribute_prefix: "rspec",
+                exclude_attributes: [:description]
+              )
             end
           when :example_group_finished
             complete_span(timestamp: event[:timestamp])
           when :example_started
             create_span(name: event.dig(:example, :description), timestamp: event[:timestamp]) do |span|
-              example_attributes = event[:example].map do |key, value|
-                next if key == :description || value.nil?
-
-                ["rspec.#{key}", value]
-              end.compact.to_h
-
-              span.add_attributes(example_attributes.merge("rspec.type" => "example"))
+              add_attributes_to_span(
+                span: span,
+                attributes: event[:example].merge(type: "example"),
+                attribute_prefix: "rspec",
+                exclude_attributes: [:description]
+              )
             end
           when :example_passed
-            complete_span(timestamp: event[:timestamp])
+            complete_span(timestamp: event[:timestamp]) do |span|
+              add_attributes_to_span(
+                span: span,
+                attributes: event.dig(:example, :result),
+                attribute_prefix: "rspec.result"
+              )
+            end
           when :example_pending
             complete_span(timestamp: event[:timestamp]) do |span|
-              span.add_event("Pending", timestamp: event[:timestamp])
+              add_attributes_to_span(
+                span: span,
+                attributes: event.dig(:example, :result),
+                attribute_prefix: "rspec.result"
+              )
             end
           when :example_failed
             complete_span(timestamp: event[:timestamp]) do |span|
+              add_attributes_to_span(
+                span: span,
+                attributes: event.dig(:example, :result),
+                attribute_prefix: "rspec.result"
+              )
               event_attributes = {
                 "exception.type" => event.dig(:exception, :type),
                 "exception.message" => event.dig(:exception, :message),
@@ -118,6 +132,17 @@ module RSpec
           @contexts.pop
           OpenTelemetry::Context.detach(@tokens.pop)
         end
+      end
+
+      def add_attributes_to_span(span:, attributes:, attribute_prefix: nil, exclude_attributes: [])
+        attributes_for_span = attributes.map do |key, value|
+          next if value.nil? || exclude_attributes.include?(key)
+
+          full_key = attribute_prefix ? "#{attribute_prefix}.#{key}" : key.to_s
+          [full_key, value]
+        end.compact.to_h
+
+        span.add_attributes(attributes_for_span)
       end
     end
   end
