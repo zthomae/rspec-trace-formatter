@@ -5,8 +5,8 @@
  "total_recorded_attributes"=>1,
  "total_recorded_events"=>0,
  "total_recorded_links"=>0,
- "start_timestamp"=>1638506618081000000,
- "end_timestamp"=>1638506619023000000,
+ "start_timestamp"=>1638641642276000000,
+ "end_timestamp"=>1638641642883000000,
  "attributes"=>{"rspec.type"=>"loading"},
  "links"=>nil,
  "events"=>nil,
@@ -18,23 +18,23 @@
  "trace_flags"=>{"flags"=>1},
  "tracestate"=>{"hash"=>{}}}
 
-{"name"=>"outputs a correct start notification",
+{"name"=>"has an undefined example",
  "kind"=>"internal",
  "status"=>{"code"=>1, "description"=>""},
  "parent_span_id"=>"4",
  "total_recorded_attributes"=>4,
- "total_recorded_events"=>0,
+ "total_recorded_events"=>1,
  "total_recorded_links"=>0,
- "start_timestamp"=>1638506619023000000,
- "end_timestamp"=>1638506619032000000,
+ "start_timestamp"=>1638641642883000000,
+ "end_timestamp"=>1638641642883000000,
  "attributes"=>
-  {"rspec.full_description"=>
-    "RSpec::Trace::Formatter outputs a correct start notification",
-   "rspec.file_path"=>"./spec/rspec/trace/formatter_spec.rb",
-   "rspec.location"=>"./spec/rspec/trace/formatter_spec.rb:20",
+  {"rspec.full_description"=>"examples has an undefined example",
+   "rspec.file_path"=>"./examples/example_spec.rb",
+   "rspec.location"=>"./examples/example_spec.rb:18",
    "rspec.type"=>"example"},
  "links"=>nil,
- "events"=>nil,
+ "events"=>
+  [{"name"=>"Pending", "attributes"=>{}, "timestamp"=>1638641670902524000}],
  "resource"=>{"attributes"=>{"test.attribute"=>1}},
  "instrumentation_library"=>
   {"name"=>"rspec-trace-formatter", "version"=>"0.1.2.pre.version"},
@@ -43,23 +43,23 @@
  "trace_flags"=>{"flags"=>1},
  "tracestate"=>{"hash"=>{}}}
 
-{"name"=>"outputs a correct example_group_started notification",
+{"name"=>"has an example skipped with xit",
  "kind"=>"internal",
  "status"=>{"code"=>1, "description"=>""},
  "parent_span_id"=>"4",
  "total_recorded_attributes"=>4,
- "total_recorded_events"=>0,
+ "total_recorded_events"=>1,
  "total_recorded_links"=>0,
- "start_timestamp"=>1638506619033000000,
- "end_timestamp"=>1638506619033000000,
+ "start_timestamp"=>1638641642883000000,
+ "end_timestamp"=>1638641642883000000,
  "attributes"=>
-  {"rspec.full_description"=>
-    "RSpec::Trace::Formatter outputs a correct example_group_started notification",
-   "rspec.file_path"=>"./spec/rspec/trace/formatter_spec.rb",
-   "rspec.location"=>"./spec/rspec/trace/formatter_spec.rb:34",
+  {"rspec.full_description"=>"examples has an example skipped with xit",
+   "rspec.file_path"=>"./examples/example_spec.rb",
+   "rspec.location"=>"./examples/example_spec.rb:20",
    "rspec.type"=>"example"},
  "links"=>nil,
- "events"=>nil,
+ "events"=>
+  [{"name"=>"Pending", "attributes"=>{}, "timestamp"=>1638641670903178000}],
  "resource"=>{"attributes"=>{"test.attribute"=>1}},
  "instrumentation_library"=>
   {"name"=>"rspec-trace-formatter", "version"=>"0.1.2.pre.version"},
@@ -68,23 +68,23 @@
  "trace_flags"=>{"flags"=>1},
  "tracestate"=>{"hash"=>{}}}
 
-{"name"=>"outputs a correct example_group_finished notification",
+{"name"=>"has an explicitly skipped example",
  "kind"=>"internal",
  "status"=>{"code"=>1, "description"=>""},
  "parent_span_id"=>"4",
  "total_recorded_attributes"=>4,
- "total_recorded_events"=>0,
+ "total_recorded_events"=>1,
  "total_recorded_links"=>0,
- "start_timestamp"=>1638506619033000000,
- "end_timestamp"=>1638506619033000000,
+ "start_timestamp"=>1638641642883000000,
+ "end_timestamp"=>1638641642883000000,
  "attributes"=>
-  {"rspec.full_description"=>
-    "RSpec::Trace::Formatter outputs a correct example_group_finished notification",
-   "rspec.file_path"=>"./spec/rspec/trace/formatter_spec.rb",
-   "rspec.location"=>"./spec/rspec/trace/formatter_spec.rb:58",
+  {"rspec.full_description"=>"examples has an explicitly skipped example",
+   "rspec.file_path"=>"./examples/example_spec.rb",
+   "rspec.location"=>"./examples/example_spec.rb:22",
    "rspec.type"=>"example"},
  "links"=>nil,
- "events"=>nil,
+ "events"=>
+  [{"name"=>"Pending", "attributes"=>{}, "timestamp"=>1638641670904017000}],
  "resource"=>{"attributes"=>{"test.attribute"=>1}},
  "instrumentation_library"=>
   {"name"=>"rspec-trace-formatter", "version"=>"0.1.2.pre.version"},
@@ -93,23 +93,23 @@
  "trace_flags"=>{"flags"=>1},
  "tracestate"=>{"hash"=>{}}}
 
-{"name"=>"outputs a correct example_started notification",
+{"name"=>"has a pending example that fails",
  "kind"=>"internal",
  "status"=>{"code"=>1, "description"=>""},
  "parent_span_id"=>"4",
  "total_recorded_attributes"=>4,
- "total_recorded_events"=>0,
+ "total_recorded_events"=>1,
  "total_recorded_links"=>0,
- "start_timestamp"=>1638506619033000000,
- "end_timestamp"=>1638506619034000000,
+ "start_timestamp"=>1638641642883000000,
+ "end_timestamp"=>1638641642884000000,
  "attributes"=>
-  {"rspec.full_description"=>
-    "RSpec::Trace::Formatter outputs a correct example_started notification",
-   "rspec.file_path"=>"./spec/rspec/trace/formatter_spec.rb",
-   "rspec.location"=>"./spec/rspec/trace/formatter_spec.rb:82",
+  {"rspec.full_description"=>"examples has a pending example that fails",
+   "rspec.file_path"=>"./examples/example_spec.rb",
+   "rspec.location"=>"./examples/example_spec.rb:26",
    "rspec.type"=>"example"},
  "links"=>nil,
- "events"=>nil,
+ "events"=>
+  [{"name"=>"Pending", "attributes"=>{}, "timestamp"=>1638641670904805000}],
  "resource"=>{"attributes"=>{"test.attribute"=>1}},
  "instrumentation_library"=>
   {"name"=>"rspec-trace-formatter", "version"=>"0.1.2.pre.version"},
@@ -118,23 +118,30 @@
  "trace_flags"=>{"flags"=>1},
  "tracestate"=>{"hash"=>{}}}
 
-{"name"=>"outputs a correct example_passed notification",
+{"name"=>"has a pending example that passes",
  "kind"=>"internal",
- "status"=>{"code"=>1, "description"=>""},
+ "status"=>{"code"=>2, "description"=>""},
  "parent_span_id"=>"4",
  "total_recorded_attributes"=>4,
- "total_recorded_events"=>0,
+ "total_recorded_events"=>1,
  "total_recorded_links"=>0,
- "start_timestamp"=>1638506619034000000,
- "end_timestamp"=>1638506619034000000,
+ "start_timestamp"=>1638641642884000000,
+ "end_timestamp"=>1638641642884000000,
  "attributes"=>
-  {"rspec.full_description"=>
-    "RSpec::Trace::Formatter outputs a correct example_passed notification",
-   "rspec.file_path"=>"./spec/rspec/trace/formatter_spec.rb",
-   "rspec.location"=>"./spec/rspec/trace/formatter_spec.rb:109",
+  {"rspec.full_description"=>"examples has a pending example that passes",
+   "rspec.file_path"=>"./examples/example_spec.rb",
+   "rspec.location"=>"./examples/example_spec.rb:31",
    "rspec.type"=>"example"},
  "links"=>nil,
- "events"=>nil,
+ "events"=>
+  [{"name"=>"exception",
+    "attributes"=>
+     {"exception.type"=>"RSpec::Core::Pending::PendingExampleFixedError",
+      "exception.message"=>
+       "Expected example to fail since it is pending, but it passed.",
+      "exception.stacktrace"=>
+       "./examples/example_spec.rb:31: Expected example to fail since it is pending, but it passed. (RSpec::Core::Pending::PendingExampleFixedError)\n"},
+    "timestamp"=>1638641670905522000}],
  "resource"=>{"attributes"=>{"test.attribute"=>1}},
  "instrumentation_library"=>
   {"name"=>"rspec-trace-formatter", "version"=>"0.1.2.pre.version"},
@@ -143,45 +150,19 @@
  "trace_flags"=>{"flags"=>1},
  "tracestate"=>{"hash"=>{}}}
 
-{"name"=>"outputs a correct example_pending notification",
+{"name"=>"allows concatenation",
  "kind"=>"internal",
  "status"=>{"code"=>1, "description"=>""},
- "parent_span_id"=>"4",
+ "parent_span_id"=>"10",
  "total_recorded_attributes"=>4,
  "total_recorded_events"=>0,
  "total_recorded_links"=>0,
- "start_timestamp"=>1638506619034000000,
- "end_timestamp"=>1638506619034000000,
+ "start_timestamp"=>1638641642884000000,
+ "end_timestamp"=>1638641642884000000,
  "attributes"=>
-  {"rspec.full_description"=>
-    "RSpec::Trace::Formatter outputs a correct example_pending notification",
-   "rspec.file_path"=>"./spec/rspec/trace/formatter_spec.rb",
-   "rspec.location"=>"./spec/rspec/trace/formatter_spec.rb:136",
-   "rspec.type"=>"example"},
- "links"=>nil,
- "events"=>nil,
- "resource"=>{"attributes"=>{"test.attribute"=>1}},
- "instrumentation_library"=>
-  {"name"=>"rspec-trace-formatter", "version"=>"0.1.2.pre.version"},
- "span_id"=>"10",
- "trace_id"=>"1",
- "trace_flags"=>{"flags"=>1},
- "tracestate"=>{"hash"=>{}}}
-
-{"name"=>"outputs a correct example_failed notification",
- "kind"=>"internal",
- "status"=>{"code"=>1, "description"=>""},
- "parent_span_id"=>"4",
- "total_recorded_attributes"=>4,
- "total_recorded_events"=>0,
- "total_recorded_links"=>0,
- "start_timestamp"=>1638506619035000000,
- "end_timestamp"=>1638506619035000000,
- "attributes"=>
-  {"rspec.full_description"=>
-    "RSpec::Trace::Formatter outputs a correct example_failed notification",
-   "rspec.file_path"=>"./spec/rspec/trace/formatter_spec.rb",
-   "rspec.location"=>"./spec/rspec/trace/formatter_spec.rb:163",
+  {"rspec.full_description"=>"examples String allows concatenation",
+   "rspec.file_path"=>"./examples/example_spec.rb",
+   "rspec.location"=>"./examples/example_spec.rb:3",
    "rspec.type"=>"example"},
  "links"=>nil,
  "events"=>nil,
@@ -193,23 +174,76 @@
  "trace_flags"=>{"flags"=>1},
  "tracestate"=>{"hash"=>{}}}
 
-{"name"=>"outputs a correct stop notification",
+{"name"=>"fails with bad concatenation",
  "kind"=>"internal",
- "status"=>{"code"=>1, "description"=>""},
- "parent_span_id"=>"4",
+ "status"=>{"code"=>2, "description"=>""},
+ "parent_span_id"=>"10",
  "total_recorded_attributes"=>4,
- "total_recorded_events"=>0,
+ "total_recorded_events"=>1,
  "total_recorded_links"=>0,
- "start_timestamp"=>1638506619035000000,
- "end_timestamp"=>1638506619035000000,
+ "start_timestamp"=>1638641642884000000,
+ "end_timestamp"=>1638641642896000000,
  "attributes"=>
-  {"rspec.full_description"=>
-    "RSpec::Trace::Formatter outputs a correct stop notification",
-   "rspec.file_path"=>"./spec/rspec/trace/formatter_spec.rb",
-   "rspec.location"=>"./spec/rspec/trace/formatter_spec.rb:198",
+  {"rspec.full_description"=>"examples String fails with bad concatenation",
+   "rspec.file_path"=>"./examples/example_spec.rb",
+   "rspec.location"=>"./examples/example_spec.rb:7",
    "rspec.type"=>"example"},
  "links"=>nil,
- "events"=>nil,
+ "events"=>
+  [{"name"=>"exception",
+    "attributes"=>
+     {"exception.type"=>"RSpec::Expectations::ExpectationNotMetError",
+      "exception.message"=>
+       "\n" +
+       "expected: \"foo_bar\"\n" +
+       "     got: \"foobar\"\n" +
+       "\n" +
+       "(compared using ==)\n",
+      "exception.stacktrace"=>
+       "/Users/zthomae/.asdf/installs/ruby/2.7.3/lib/ruby/gems/2.7.0/gems/rspec-support-3.10.3/lib/rspec/support.rb:102:in `block in <module:Support>':  (RSpec::Expectations::ExpectationNotMetError)\n" +
+       "expected: \"foo_bar\"\n" +
+       "     got: \"foobar\"\n" +
+       "\n" +
+       "(compared using ==)\n" +
+       "\tfrom /Users/zthomae/.asdf/installs/ruby/2.7.3/lib/ruby/gems/2.7.0/gems/rspec-support-3.10.3/lib/rspec/support.rb:111:in `notify_failure'\n" +
+       "\tfrom /Users/zthomae/.asdf/installs/ruby/2.7.3/lib/ruby/gems/2.7.0/gems/rspec-expectations-3.10.1/lib/rspec/expectations/fail_with.rb:35:in `fail_with'\n" +
+       "\tfrom /Users/zthomae/.asdf/installs/ruby/2.7.3/lib/ruby/gems/2.7.0/gems/rspec-expectations-3.10.1/lib/rspec/expectations/handler.rb:38:in `handle_failure'\n" +
+       "\tfrom /Users/zthomae/.asdf/installs/ruby/2.7.3/lib/ruby/gems/2.7.0/gems/rspec-expectations-3.10.1/lib/rspec/expectations/handler.rb:56:in `block in handle_matcher'\n" +
+       "\tfrom /Users/zthomae/.asdf/installs/ruby/2.7.3/lib/ruby/gems/2.7.0/gems/rspec-expectations-3.10.1/lib/rspec/expectations/handler.rb:27:in `with_matcher'\n" +
+       "\tfrom /Users/zthomae/.asdf/installs/ruby/2.7.3/lib/ruby/gems/2.7.0/gems/rspec-expectations-3.10.1/lib/rspec/expectations/handler.rb:48:in `handle_matcher'\n" +
+       "\tfrom /Users/zthomae/.asdf/installs/ruby/2.7.3/lib/ruby/gems/2.7.0/gems/rspec-expectations-3.10.1/lib/rspec/expectations/expectation_target.rb:65:in `to'\n" +
+       "\tfrom /Users/zthomae/code/rspec-trace-formatter/examples/example_spec.rb:8:in `block (3 levels) in <top (required)>'\n" +
+       "\tfrom /Users/zthomae/.asdf/installs/ruby/2.7.3/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:262:in `instance_exec'\n" +
+       "\tfrom /Users/zthomae/.asdf/installs/ruby/2.7.3/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:262:in `block in run'\n" +
+       "\tfrom /Users/zthomae/.asdf/installs/ruby/2.7.3/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:508:in `block in with_around_and_singleton_context_hooks'\n" +
+       "\tfrom /Users/zthomae/.asdf/installs/ruby/2.7.3/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:465:in `block in with_around_example_hooks'\n" +
+       "\tfrom /Users/zthomae/.asdf/installs/ruby/2.7.3/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/hooks.rb:486:in `block in run'\n" +
+       "\tfrom /Users/zthomae/.asdf/installs/ruby/2.7.3/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/hooks.rb:624:in `run_around_example_hooks_for'\n" +
+       "\tfrom /Users/zthomae/.asdf/installs/ruby/2.7.3/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/hooks.rb:486:in `run'\n" +
+       "\tfrom /Users/zthomae/.asdf/installs/ruby/2.7.3/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:465:in `with_around_example_hooks'\n" +
+       "\tfrom /Users/zthomae/.asdf/installs/ruby/2.7.3/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:508:in `with_around_and_singleton_context_hooks'\n" +
+       "\tfrom /Users/zthomae/.asdf/installs/ruby/2.7.3/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example.rb:259:in `run'\n" +
+       "\tfrom /Users/zthomae/.asdf/installs/ruby/2.7.3/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:644:in `block in run_examples'\n" +
+       "\tfrom /Users/zthomae/.asdf/installs/ruby/2.7.3/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:640:in `map'\n" +
+       "\tfrom /Users/zthomae/.asdf/installs/ruby/2.7.3/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:640:in `run_examples'\n" +
+       "\tfrom /Users/zthomae/.asdf/installs/ruby/2.7.3/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:606:in `run'\n" +
+       "\tfrom /Users/zthomae/.asdf/installs/ruby/2.7.3/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:607:in `block in run'\n" +
+       "\tfrom /Users/zthomae/.asdf/installs/ruby/2.7.3/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:607:in `map'\n" +
+       "\tfrom /Users/zthomae/.asdf/installs/ruby/2.7.3/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/example_group.rb:607:in `run'\n" +
+       "\tfrom /Users/zthomae/.asdf/installs/ruby/2.7.3/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `block (3 levels) in run_specs'\n" +
+       "\tfrom /Users/zthomae/.asdf/installs/ruby/2.7.3/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `map'\n" +
+       "\tfrom /Users/zthomae/.asdf/installs/ruby/2.7.3/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:121:in `block (2 levels) in run_specs'\n" +
+       "\tfrom /Users/zthomae/.asdf/installs/ruby/2.7.3/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/configuration.rb:2067:in `with_suite_hooks'\n" +
+       "\tfrom /Users/zthomae/.asdf/installs/ruby/2.7.3/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:116:in `block in run_specs'\n" +
+       "\tfrom /Users/zthomae/.asdf/installs/ruby/2.7.3/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/reporter.rb:74:in `report'\n" +
+       "\tfrom /Users/zthomae/.asdf/installs/ruby/2.7.3/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:115:in `run_specs'\n" +
+       "\tfrom /Users/zthomae/.asdf/installs/ruby/2.7.3/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:89:in `run'\n" +
+       "\tfrom /Users/zthomae/.asdf/installs/ruby/2.7.3/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:71:in `run'\n" +
+       "\tfrom /Users/zthomae/.asdf/installs/ruby/2.7.3/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/lib/rspec/core/runner.rb:45:in `invoke'\n" +
+       "\tfrom /Users/zthomae/.asdf/installs/ruby/2.7.3/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/exe/rspec:4:in `<top (required)>'\n" +
+       "\tfrom /Users/zthomae/.asdf/installs/ruby/2.7.3/bin/rspec:23:in `load'\n" +
+       "\tfrom /Users/zthomae/.asdf/installs/ruby/2.7.3/bin/rspec:23:in `<main>'\n"},
+    "timestamp"=>1638641670907159000}],
  "resource"=>{"attributes"=>{"test.attribute"=>1}},
  "instrumentation_library"=>
   {"name"=>"rspec-trace-formatter", "version"=>"0.1.2.pre.version"},
@@ -218,44 +252,43 @@
  "trace_flags"=>{"flags"=>1},
  "tracestate"=>{"hash"=>{}}}
 
-{"name"=>"RSpec::Trace::Formatter",
+{"name"=>"String",
  "kind"=>"internal",
  "status"=>{"code"=>1, "description"=>""},
- "parent_span_id"=>"3",
+ "parent_span_id"=>"4",
  "total_recorded_attributes"=>4,
  "total_recorded_events"=>0,
  "total_recorded_links"=>0,
- "start_timestamp"=>1638506619023000000,
- "end_timestamp"=>1638506619035000000,
+ "start_timestamp"=>1638641642884000000,
+ "end_timestamp"=>1638641642897000000,
  "attributes"=>
-  {"rspec.described_class"=>"RSpec::Trace::Formatter",
-   "rspec.file_path"=>"./spec/rspec/trace/formatter_spec.rb",
-   "rspec.location"=>"./spec/rspec/trace/formatter_spec.rb:5",
+  {"rspec.described_class"=>"String",
+   "rspec.file_path"=>"./examples/example_spec.rb",
+   "rspec.location"=>"./examples/example_spec.rb:2",
    "rspec.type"=>"example_group"},
  "links"=>nil,
  "events"=>nil,
  "resource"=>{"attributes"=>{"test.attribute"=>1}},
  "instrumentation_library"=>
   {"name"=>"rspec-trace-formatter", "version"=>"0.1.2.pre.version"},
- "span_id"=>"4",
+ "span_id"=>"10",
  "trace_id"=>"1",
  "trace_flags"=>{"flags"=>1},
  "tracestate"=>{"hash"=>{}}}
 
-{"name"=>"constructs a formatter to output to an rspec-trace-consumer process",
+{"name"=>"sleeps",
  "kind"=>"internal",
  "status"=>{"code"=>1, "description"=>""},
  "parent_span_id"=>"13",
  "total_recorded_attributes"=>4,
  "total_recorded_events"=>0,
  "total_recorded_links"=>0,
- "start_timestamp"=>1638506619035000000,
- "end_timestamp"=>1638506619036000000,
+ "start_timestamp"=>1638641642897000000,
+ "end_timestamp"=>1638641645898000000,
  "attributes"=>
-  {"rspec.full_description"=>
-    "RSpec::Trace::OpenTelemetryFormatter constructs a formatter to output to an rspec-trace-consumer process",
-   "rspec.file_path"=>"./spec/rspec/trace/open_telemetry_formatter_spec.rb",
-   "rspec.location"=>"./spec/rspec/trace/open_telemetry_formatter_spec.rb:17",
+  {"rspec.full_description"=>"examples Kernel sleeps",
+   "rspec.file_path"=>"./examples/example_spec.rb",
+   "rspec.location"=>"./examples/example_spec.rb:13",
    "rspec.type"=>"example"},
  "links"=>nil,
  "events"=>nil,
@@ -267,45 +300,19 @@
  "trace_flags"=>{"flags"=>1},
  "tracestate"=>{"hash"=>{}}}
 
-{"name"=>
-  "prints an output object and waits for the process upon receiving the stop notification",
+{"name"=>"Kernel",
  "kind"=>"internal",
  "status"=>{"code"=>1, "description"=>""},
- "parent_span_id"=>"13",
+ "parent_span_id"=>"4",
  "total_recorded_attributes"=>4,
  "total_recorded_events"=>0,
  "total_recorded_links"=>0,
- "start_timestamp"=>1638506619036000000,
- "end_timestamp"=>1638506619040000000,
+ "start_timestamp"=>1638641642897000000,
+ "end_timestamp"=>1638641645898000000,
  "attributes"=>
-  {"rspec.full_description"=>
-    "RSpec::Trace::OpenTelemetryFormatter prints an output object and waits for the process upon receiving the stop notification",
-   "rspec.file_path"=>"./spec/rspec/trace/open_telemetry_formatter_spec.rb",
-   "rspec.location"=>"./spec/rspec/trace/open_telemetry_formatter_spec.rb:21",
-   "rspec.type"=>"example"},
- "links"=>nil,
- "events"=>nil,
- "resource"=>{"attributes"=>{"test.attribute"=>1}},
- "instrumentation_library"=>
-  {"name"=>"rspec-trace-formatter", "version"=>"0.1.2.pre.version"},
- "span_id"=>"15",
- "trace_id"=>"1",
- "trace_flags"=>{"flags"=>1},
- "tracestate"=>{"hash"=>{}}}
-
-{"name"=>"RSpec::Trace::OpenTelemetryFormatter",
- "kind"=>"internal",
- "status"=>{"code"=>1, "description"=>""},
- "parent_span_id"=>"3",
- "total_recorded_attributes"=>4,
- "total_recorded_events"=>0,
- "total_recorded_links"=>0,
- "start_timestamp"=>1638506619035000000,
- "end_timestamp"=>1638506619040000000,
- "attributes"=>
-  {"rspec.described_class"=>"RSpec::Trace::OpenTelemetryFormatter",
-   "rspec.file_path"=>"./spec/rspec/trace/open_telemetry_formatter_spec.rb",
-   "rspec.location"=>"./spec/rspec/trace/open_telemetry_formatter_spec.rb:5",
+  {"rspec.described_class"=>"Kernel",
+   "rspec.file_path"=>"./examples/example_spec.rb",
+   "rspec.location"=>"./examples/example_spec.rb:12",
    "rspec.type"=>"example_group"},
  "links"=>nil,
  "events"=>nil,
@@ -317,6 +324,29 @@
  "trace_flags"=>{"flags"=>1},
  "tracestate"=>{"hash"=>{}}}
 
+{"name"=>"examples",
+ "kind"=>"internal",
+ "status"=>{"code"=>1, "description"=>""},
+ "parent_span_id"=>"3",
+ "total_recorded_attributes"=>3,
+ "total_recorded_events"=>0,
+ "total_recorded_links"=>0,
+ "start_timestamp"=>1638641642883000000,
+ "end_timestamp"=>1638641645899000000,
+ "attributes"=>
+  {"rspec.file_path"=>"./examples/example_spec.rb",
+   "rspec.location"=>"./examples/example_spec.rb:1",
+   "rspec.type"=>"example_group"},
+ "links"=>nil,
+ "events"=>nil,
+ "resource"=>{"attributes"=>{"test.attribute"=>1}},
+ "instrumentation_library"=>
+  {"name"=>"rspec-trace-formatter", "version"=>"0.1.2.pre.version"},
+ "span_id"=>"4",
+ "trace_id"=>"1",
+ "trace_flags"=>{"flags"=>1},
+ "tracestate"=>{"hash"=>{}}}
+
 {"name"=>"examples running",
  "kind"=>"internal",
  "status"=>{"code"=>1, "description"=>""},
@@ -324,9 +354,9 @@
  "total_recorded_attributes"=>2,
  "total_recorded_events"=>0,
  "total_recorded_links"=>0,
- "start_timestamp"=>1638506619023000000,
- "end_timestamp"=>1638506619040000000,
- "attributes"=>{"rspec.count"=>10, "rspec.type"=>"suite"},
+ "start_timestamp"=>1638641642883000000,
+ "end_timestamp"=>1638641645899000000,
+ "attributes"=>{"rspec.count"=>8, "rspec.type"=>"suite"},
  "links"=>nil,
  "events"=>nil,
  "resource"=>{"attributes"=>{"test.attribute"=>1}},
@@ -344,8 +374,8 @@
  "total_recorded_attributes"=>0,
  "total_recorded_events"=>0,
  "total_recorded_links"=>0,
- "start_timestamp"=>1638506618081000000,
- "end_timestamp"=>1638506619040000000,
+ "start_timestamp"=>1638641642276000000,
+ "end_timestamp"=>1638641645899000000,
  "attributes"=>{},
  "links"=>nil,
  "events"=>nil,
