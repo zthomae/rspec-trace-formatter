@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.description = "Formatter for RSpec to represent test runs as events for traces"
   spec.homepage = "https://github.com/zthomae/rspec-trace-formatter"
   spec.license = "MIT"
-  spec.required_ruby_version = Gem::Requirement.new(">= 2.4.0")
+  spec.required_ruby_version = ">= 2.5.0"
 
   spec.metadata["allowed_push_host"] = "https://rubygems.org"
   spec.metadata["homepage_uri"] = spec.homepage
