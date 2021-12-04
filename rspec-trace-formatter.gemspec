@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.authors = ["Zach Thomae"]
   spec.email = ["zach@thomae.co"]
 
-  spec.summary = "Formatter for RSpec to represent test runs as events for traces"
-  spec.description = "Formatter for RSpec to represent test runs as events for traces"
+  spec.summary = "Formatter for RSpec to represent test runs as trace events"
+  spec.description = "Create traces from RSpec tests using OpenTelemetry or your own tracing library"
   spec.homepage = "https://github.com/zthomae/rspec-trace-formatter"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 2.5.0"
