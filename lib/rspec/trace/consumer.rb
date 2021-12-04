@@ -51,9 +51,9 @@ module RSpec
           when :example_group_started
             create_span(name: event.dig(:group, :description), timestamp: event[:timestamp]) do |span|
               group_attributes = event[:group].map do |key, value|
-                next if key == :description
+                next if key == :description || value.nil?
 
-                ["rspec.example.#{key}", value]
+                ["rspec.#{key}", value]
               end.compact.to_h
 
               span.add_attributes(group_attributes.merge("rspec.type" => "example_group"))
@@ -63,9 +63,9 @@ module RSpec
           when :example_started
             create_span(name: event.dig(:example, :description), timestamp: event[:timestamp]) do |span|
               example_attributes = event[:example].map do |key, value|
-                next if key == :description
+                next if key == :description || value.nil?
 
-                ["rspec.example.#{key}", value]
+                ["rspec.#{key}", value]
               end.compact.to_h
 
               span.add_attributes(example_attributes.merge("rspec.type" => "example"))

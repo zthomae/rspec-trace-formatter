@@ -28,10 +28,10 @@
  "start_timestamp"=>1638506619023000000,
  "end_timestamp"=>1638506619032000000,
  "attributes"=>
-  {"rspec.example.full_description"=>
+  {"rspec.full_description"=>
     "RSpec::Trace::Formatter outputs a correct start notification",
-   "rspec.example.file_path"=>"./spec/rspec/trace/formatter_spec.rb",
-   "rspec.example.location"=>"./spec/rspec/trace/formatter_spec.rb:20",
+   "rspec.file_path"=>"./spec/rspec/trace/formatter_spec.rb",
+   "rspec.location"=>"./spec/rspec/trace/formatter_spec.rb:20",
    "rspec.type"=>"example"},
  "links"=>nil,
  "events"=>nil,
@@ -53,10 +53,10 @@
  "start_timestamp"=>1638506619033000000,
  "end_timestamp"=>1638506619033000000,
  "attributes"=>
-  {"rspec.example.full_description"=>
+  {"rspec.full_description"=>
     "RSpec::Trace::Formatter outputs a correct example_group_started notification",
-   "rspec.example.file_path"=>"./spec/rspec/trace/formatter_spec.rb",
-   "rspec.example.location"=>"./spec/rspec/trace/formatter_spec.rb:34",
+   "rspec.file_path"=>"./spec/rspec/trace/formatter_spec.rb",
+   "rspec.location"=>"./spec/rspec/trace/formatter_spec.rb:34",
    "rspec.type"=>"example"},
  "links"=>nil,
  "events"=>nil,
@@ -78,10 +78,10 @@
  "start_timestamp"=>1638506619033000000,
  "end_timestamp"=>1638506619033000000,
  "attributes"=>
-  {"rspec.example.full_description"=>
+  {"rspec.full_description"=>
     "RSpec::Trace::Formatter outputs a correct example_group_finished notification",
-   "rspec.example.file_path"=>"./spec/rspec/trace/formatter_spec.rb",
-   "rspec.example.location"=>"./spec/rspec/trace/formatter_spec.rb:58",
+   "rspec.file_path"=>"./spec/rspec/trace/formatter_spec.rb",
+   "rspec.location"=>"./spec/rspec/trace/formatter_spec.rb:58",
    "rspec.type"=>"example"},
  "links"=>nil,
  "events"=>nil,
@@ -103,10 +103,10 @@
  "start_timestamp"=>1638506619033000000,
  "end_timestamp"=>1638506619034000000,
  "attributes"=>
-  {"rspec.example.full_description"=>
+  {"rspec.full_description"=>
     "RSpec::Trace::Formatter outputs a correct example_started notification",
-   "rspec.example.file_path"=>"./spec/rspec/trace/formatter_spec.rb",
-   "rspec.example.location"=>"./spec/rspec/trace/formatter_spec.rb:82",
+   "rspec.file_path"=>"./spec/rspec/trace/formatter_spec.rb",
+   "rspec.location"=>"./spec/rspec/trace/formatter_spec.rb:82",
    "rspec.type"=>"example"},
  "links"=>nil,
  "events"=>nil,
@@ -128,10 +128,10 @@
  "start_timestamp"=>1638506619034000000,
  "end_timestamp"=>1638506619034000000,
  "attributes"=>
-  {"rspec.example.full_description"=>
+  {"rspec.full_description"=>
     "RSpec::Trace::Formatter outputs a correct example_passed notification",
-   "rspec.example.file_path"=>"./spec/rspec/trace/formatter_spec.rb",
-   "rspec.example.location"=>"./spec/rspec/trace/formatter_spec.rb:109",
+   "rspec.file_path"=>"./spec/rspec/trace/formatter_spec.rb",
+   "rspec.location"=>"./spec/rspec/trace/formatter_spec.rb:109",
    "rspec.type"=>"example"},
  "links"=>nil,
  "events"=>nil,
@@ -153,10 +153,10 @@
  "start_timestamp"=>1638506619034000000,
  "end_timestamp"=>1638506619034000000,
  "attributes"=>
-  {"rspec.example.full_description"=>
+  {"rspec.full_description"=>
     "RSpec::Trace::Formatter outputs a correct example_pending notification",
-   "rspec.example.file_path"=>"./spec/rspec/trace/formatter_spec.rb",
-   "rspec.example.location"=>"./spec/rspec/trace/formatter_spec.rb:136",
+   "rspec.file_path"=>"./spec/rspec/trace/formatter_spec.rb",
+   "rspec.location"=>"./spec/rspec/trace/formatter_spec.rb:136",
    "rspec.type"=>"example"},
  "links"=>nil,
  "events"=>nil,
@@ -178,10 +178,10 @@
  "start_timestamp"=>1638506619035000000,
  "end_timestamp"=>1638506619035000000,
  "attributes"=>
-  {"rspec.example.full_description"=>
+  {"rspec.full_description"=>
     "RSpec::Trace::Formatter outputs a correct example_failed notification",
-   "rspec.example.file_path"=>"./spec/rspec/trace/formatter_spec.rb",
-   "rspec.example.location"=>"./spec/rspec/trace/formatter_spec.rb:163",
+   "rspec.file_path"=>"./spec/rspec/trace/formatter_spec.rb",
+   "rspec.location"=>"./spec/rspec/trace/formatter_spec.rb:163",
    "rspec.type"=>"example"},
  "links"=>nil,
  "events"=>nil,
@@ -203,10 +203,10 @@
  "start_timestamp"=>1638506619035000000,
  "end_timestamp"=>1638506619035000000,
  "attributes"=>
-  {"rspec.example.full_description"=>
+  {"rspec.full_description"=>
     "RSpec::Trace::Formatter outputs a correct stop notification",
-   "rspec.example.file_path"=>"./spec/rspec/trace/formatter_spec.rb",
-   "rspec.example.location"=>"./spec/rspec/trace/formatter_spec.rb:198",
+   "rspec.file_path"=>"./spec/rspec/trace/formatter_spec.rb",
+   "rspec.location"=>"./spec/rspec/trace/formatter_spec.rb:198",
    "rspec.type"=>"example"},
  "links"=>nil,
  "events"=>nil,
@@ -228,9 +228,9 @@
  "start_timestamp"=>1638506619023000000,
  "end_timestamp"=>1638506619035000000,
  "attributes"=>
-  {"rspec.example.described_class"=>"RSpec::Trace::Formatter",
-   "rspec.example.file_path"=>"./spec/rspec/trace/formatter_spec.rb",
-   "rspec.example.location"=>"./spec/rspec/trace/formatter_spec.rb:5",
+  {"rspec.described_class"=>"RSpec::Trace::Formatter",
+   "rspec.file_path"=>"./spec/rspec/trace/formatter_spec.rb",
+   "rspec.location"=>"./spec/rspec/trace/formatter_spec.rb:5",
    "rspec.type"=>"example_group"},
  "links"=>nil,
  "events"=>nil,
@@ -252,12 +252,10 @@
  "start_timestamp"=>1638506619035000000,
  "end_timestamp"=>1638506619036000000,
  "attributes"=>
-  {"rspec.example.full_description"=>
+  {"rspec.full_description"=>
     "RSpec::Trace::OpenTelemetryFormatter constructs a formatter to output to an rspec-trace-consumer process",
-   "rspec.example.file_path"=>
-    "./spec/rspec/trace/open_telemetry_formatter_spec.rb",
-   "rspec.example.location"=>
-    "./spec/rspec/trace/open_telemetry_formatter_spec.rb:17",
+   "rspec.file_path"=>"./spec/rspec/trace/open_telemetry_formatter_spec.rb",
+   "rspec.location"=>"./spec/rspec/trace/open_telemetry_formatter_spec.rb:17",
    "rspec.type"=>"example"},
  "links"=>nil,
  "events"=>nil,
@@ -280,12 +278,10 @@
  "start_timestamp"=>1638506619036000000,
  "end_timestamp"=>1638506619040000000,
  "attributes"=>
-  {"rspec.example.full_description"=>
+  {"rspec.full_description"=>
     "RSpec::Trace::OpenTelemetryFormatter prints an output object and waits for the process upon receiving the stop notification",
-   "rspec.example.file_path"=>
-    "./spec/rspec/trace/open_telemetry_formatter_spec.rb",
-   "rspec.example.location"=>
-    "./spec/rspec/trace/open_telemetry_formatter_spec.rb:21",
+   "rspec.file_path"=>"./spec/rspec/trace/open_telemetry_formatter_spec.rb",
+   "rspec.location"=>"./spec/rspec/trace/open_telemetry_formatter_spec.rb:21",
    "rspec.type"=>"example"},
  "links"=>nil,
  "events"=>nil,
@@ -307,11 +303,9 @@
  "start_timestamp"=>1638506619035000000,
  "end_timestamp"=>1638506619040000000,
  "attributes"=>
-  {"rspec.example.described_class"=>"RSpec::Trace::OpenTelemetryFormatter",
-   "rspec.example.file_path"=>
-    "./spec/rspec/trace/open_telemetry_formatter_spec.rb",
-   "rspec.example.location"=>
-    "./spec/rspec/trace/open_telemetry_formatter_spec.rb:5",
+  {"rspec.described_class"=>"RSpec::Trace::OpenTelemetryFormatter",
+   "rspec.file_path"=>"./spec/rspec/trace/open_telemetry_formatter_spec.rb",
+   "rspec.location"=>"./spec/rspec/trace/open_telemetry_formatter_spec.rb:5",
    "rspec.type"=>"example_group"},
  "links"=>nil,
  "events"=>nil,
