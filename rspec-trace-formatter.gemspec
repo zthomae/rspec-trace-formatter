@@ -35,7 +35,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "lefthook", "~> 0.7.7"
   spec.add_development_dependency "rake", "~> 13.0.6"
   spec.add_development_dependency "pry", "~> 0.13"
-  spec.add_development_dependency "pry-byebug", "~> 3.9.0"
   spec.add_development_dependency "rspec", "~> 3.0"
   spec.add_development_dependency "rspec-snapshot", "~> 2.0"
   spec.add_development_dependency "rspec-github", "~> 2.3"
