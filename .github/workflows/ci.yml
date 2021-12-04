@@ -22,7 +22,16 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        ruby: ["2.5", "2.6", "2.7", "3.0", "jruby", "truffleruby"]
+        ruby:
+          - "2.5"
+          - "2.6"
+          - "2.7"
+          - "3.0"
+          - "jruby-9.2"
+          - "jruby-9.3"
+          - "truffleruby-20"
+          - "truffleruby-21"
+          - "truffleruby+graalvm-21"
     steps:
       - uses: actions/checkout@v2
       - uses: ruby/setup-ruby@v1
