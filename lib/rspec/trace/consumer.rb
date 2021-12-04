@@ -74,7 +74,7 @@ module RSpec
             complete_span(timestamp: event[:timestamp])
           when :example_pending
             complete_span(timestamp: event[:timestamp]) do |span|
-              span.add_event("Pending")
+              span.add_event("Pending", timestamp: event[:timestamp])
             end
           when :example_failed
             complete_span(timestamp: event[:timestamp]) do |span|
@@ -83,7 +83,7 @@ module RSpec
                 "exception.message" => event.dig(:exception, :message),
                 "exception.stacktrace" => event.dig(:exception, :backtrace)
               }
-              span.add_event("exception", attributes: event_attributes)
+              span.add_event("exception", attributes: event_attributes, timestamp: event[:timestamp])
               span.status = OpenTelemetry::Trace::Status.error
             end
           when :stop

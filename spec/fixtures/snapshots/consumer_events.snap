@@ -34,7 +34,7 @@
    "rspec.type"=>"example"},
  "links"=>nil,
  "events"=>
-  [{"name"=>"Pending", "attributes"=>{}, "timestamp"=>1638641670902524000}],
+  [{"name"=>"Pending", "attributes"=>{}, "timestamp"=>1638641642883000000}],
  "resource"=>{"attributes"=>{"test.attribute"=>1}},
  "instrumentation_library"=>
   {"name"=>"rspec-trace-formatter", "version"=>"0.1.2.pre.version"},
@@ -59,7 +59,7 @@
    "rspec.type"=>"example"},
  "links"=>nil,
  "events"=>
-  [{"name"=>"Pending", "attributes"=>{}, "timestamp"=>1638641670903178000}],
+  [{"name"=>"Pending", "attributes"=>{}, "timestamp"=>1638641642883000000}],
  "resource"=>{"attributes"=>{"test.attribute"=>1}},
  "instrumentation_library"=>
   {"name"=>"rspec-trace-formatter", "version"=>"0.1.2.pre.version"},
@@ -84,7 +84,7 @@
    "rspec.type"=>"example"},
  "links"=>nil,
  "events"=>
-  [{"name"=>"Pending", "attributes"=>{}, "timestamp"=>1638641670904017000}],
+  [{"name"=>"Pending", "attributes"=>{}, "timestamp"=>1638641642883000000}],
  "resource"=>{"attributes"=>{"test.attribute"=>1}},
  "instrumentation_library"=>
   {"name"=>"rspec-trace-formatter", "version"=>"0.1.2.pre.version"},
@@ -109,7 +109,7 @@
    "rspec.type"=>"example"},
  "links"=>nil,
  "events"=>
-  [{"name"=>"Pending", "attributes"=>{}, "timestamp"=>1638641670904805000}],
+  [{"name"=>"Pending", "attributes"=>{}, "timestamp"=>1638641642884000000}],
  "resource"=>{"attributes"=>{"test.attribute"=>1}},
  "instrumentation_library"=>
   {"name"=>"rspec-trace-formatter", "version"=>"0.1.2.pre.version"},
@@ -141,7 +141,7 @@
        "Expected example to fail since it is pending, but it passed.",
       "exception.stacktrace"=>
        "./examples/example_spec.rb:31: Expected example to fail since it is pending, but it passed. (RSpec::Core::Pending::PendingExampleFixedError)\n"},
-    "timestamp"=>1638641670905522000}],
+    "timestamp"=>1638641642884000000}],
  "resource"=>{"attributes"=>{"test.attribute"=>1}},
  "instrumentation_library"=>
   {"name"=>"rspec-trace-formatter", "version"=>"0.1.2.pre.version"},
@@ -243,7 +243,7 @@
        "\tfrom /Users/zthomae/.asdf/installs/ruby/2.7.3/lib/ruby/gems/2.7.0/gems/rspec-core-3.10.1/exe/rspec:4:in `<top (required)>'\n" +
        "\tfrom /Users/zthomae/.asdf/installs/ruby/2.7.3/bin/rspec:23:in `load'\n" +
        "\tfrom /Users/zthomae/.asdf/installs/ruby/2.7.3/bin/rspec:23:in `<main>'\n"},
-    "timestamp"=>1638641670907159000}],
+    "timestamp"=>1638641642896000000}],
  "resource"=>{"attributes"=>{"test.attribute"=>1}},
  "instrumentation_library"=>
   {"name"=>"rspec-trace-formatter", "version"=>"0.1.2.pre.version"},
