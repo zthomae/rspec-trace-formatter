@@ -52,6 +52,17 @@ However, the rest of this library is _expected_ to work for you, and [specifying
 
 ## How Do I Use It?
 
+You can install this gem by adding the `rspec-trace-formatter` (along with the necessary OpenTelemetry dependencies, if they aren't already included) to your `Gemfile` and running `bundle install`.
+For example:
+
+```ruby
+group :test do
+  gem "rspec-trace-formatter"
+  gem "opentelemetry-api", "~> 1.0"
+  gem "opentelemetry-exporter-otlp", "~> 0.20.0"
+end
+```
+
 This library should be used like [any other RSpec formatter](https://relishapp.com/rspec/rspec-core/v/3-10/docs/command-line/format-option), with the assistance of any environment variables that you need to control the OpenTelemetry data.
 
 Example of using the `RSpec::Trace::OpenTelemetryFormatter` with representative environment variables set:
