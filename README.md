@@ -86,14 +86,23 @@ Very carefully, I hope.
 One notable fact is that we use [snapshot testing](https://github.com/levinmr/rspec-snapshot) for the class underpinning `rspec-trace-consumer`.
 To keep this reliable, I've defined a custom OpenTelemetry span exporter that includes meaningful-enough data to test with and no execution-specific fields.
 
+### Useful `rake` commands
+
+* `rake build`: Build the gem
+* `rake install`: Builds and installs the gem
+* `rake regenerate_examples`: Rebuilds fixtures for snapshot tests
+* `rake test`: Runs the automated tests (written with RSpec, of course)
+* `rake update_snapshots`: Updates the test snapshots
+
+### Containers
+
+Configuration for a [dev container](https://code.visualstudio.com/docs/remote/containers) is provided for convenience.
+The main practical benefit of developing in the container is to be able to regenerate the snapshots for the `Consumer` tests with consistent and non-identifying file paths for the stack traces.
+
 ## What's Coming Next?
 
 This does not yet support providing a [parent trace ID with an environment variable](https://github.com/open-telemetry/opentelemetry-specification/issues/740).
 I haven't done it yet because it's not very helpful to me given my primary use case, but I'll add that soon enough.
-
-The fixtures for the snapshot tests for the `Consumer` class are currently system-specific insofar as the exception stack traces are built from real exceptions that include paths from the Ruby installation that generated them.
-Right now they come from my setup, so if anyone else regenerates the fixtures these paths will change.
-I believe that the ideal way to fix this is to provide a containerized development environment for which these paths can be fixed for everyone.
 
 ## License
 
