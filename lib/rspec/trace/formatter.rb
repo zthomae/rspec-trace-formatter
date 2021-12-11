@@ -3,7 +3,7 @@
 require "active_support/time"
 require "active_support/json"
 require "rspec/core"
-require "rspec/core/formatters/base_text_formatter"
+require "rspec/core/formatters/base_formatter"
 
 require_relative "version"
 
