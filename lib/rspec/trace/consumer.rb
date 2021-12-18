@@ -16,9 +16,7 @@ module RSpec
         @tracer_provider.sampler = OpenTelemetry::SDK::Trace::Samplers::ALWAYS_ON
         @tracer = @tracer_provider.tracer("rspec-trace-formatter", RSpec::Trace::VERSION)
         @spans = []
-        # TODO: Not this
-        @current_span_key = OpenTelemetry::Trace.const_get(:CURRENT_SPAN_KEY)
-        @contexts = [OpenTelemetry::Context.empty]
+        @contexts = [OpenTelemetry::Context.current]
         @tokens = []
       end
 
@@ -120,8 +118,9 @@ module RSpec
         @tracer.start_span(name, start_timestamp: timestamp, with_parent: @contexts.last).tap do |span|
           yield span if block_given?
           @spans.push(span)
-          @contexts.push(@contexts.last.set_value(@current_span_key, span))
-          @tokens.push(OpenTelemetry::Context.attach(@contexts.last))
+          new_context = OpenTelemetry::Trace.context_with_span(span, parent_context: @contexts.last)
+          @contexts.push(new_context)
+          @tokens.push(OpenTelemetry::Context.attach(new_context))
         end
       end
 
