@@ -76,7 +76,11 @@ Example of running the `RSpec::Trace::Formatter` by itself and sending the outpu
 ```bash
 OTEL_TRACES_EXPORTER=console bundle exec rspec --format RSpec::Trace::Formatter --out /tmp/trace-events.jsonl
 
+# Piping the input in
 rspec-trace-consumer < /tmp/trace-events.jsonl
+
+# Passing a filename as an argument
+rspec-trace-consumer /tmp/trace-events.jsonl
 ```
 
 ## How Do I Contribute?

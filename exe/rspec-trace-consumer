@@ -2,7 +2,23 @@
 
 $LOAD_PATH.unshift("#{__dir__}/../lib")
 
+require "optionparser"
 require "rspec/trace"
 
+OptionParser.new do |opts|
+  opts.banner = "Usage: rspec-trace-consumer [path]"
+  opts.on("-v", "--version", "Prints the current library version") do
+    puts RSpec::Trace::VERSION
+    exit 0
+  end
+end.parse!
+
+input_file = ARGV.pop
+input = if input_file
+  File.open(input_file, "r")
+else
+  $stdin
+end
+
 OpenTelemetry::SDK.configure
-RSpec::Trace::Consumer.new($stdin).run
+RSpec::Trace::Consumer.new(input).run
