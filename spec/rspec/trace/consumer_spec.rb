@@ -61,21 +61,16 @@ module RSpec
       end
 
       it "generates spans matching the snapshot" do
-        consumer = described_class.new(input)
-
-        OpenTelemetry.tracer_provider.id_generator = IdGenerator.new
-
-        # TODO: Anything but this
         span_exporter = TestSpanExporter.new
-        OpenTelemetry.tracer_provider.instance_variable_set(
-          :@span_processors,
-          [OpenTelemetry::SDK::Trace::Export::SimpleSpanProcessor.new(span_exporter)]
-        )
-        OpenTelemetry.tracer_provider.instance_variable_set(
-          :@resource,
-          OpenTelemetry::SDK::Resources::Resource.create({"test.attribute" => 1})
-        )
+        allow(OpenTelemetry::SDK::Resources::Resource)
+          .to receive(:default)
+          .and_return(OpenTelemetry::SDK::Resources::Resource.create({"test.attribute" => 1}))
+        OpenTelemetry::SDK.configure do |c|
+          c.add_span_processor(OpenTelemetry::SDK::Trace::Export::SimpleSpanProcessor.new(span_exporter))
+          c.id_generator = IdGenerator.new
+        end
 
+        consumer = described_class.new(input)
         allow(consumer).to receive(:exit)
 
         consumer.run

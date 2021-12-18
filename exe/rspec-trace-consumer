@@ -4,4 +4,5 @@ $LOAD_PATH.unshift("#{__dir__}/../lib")
 
 require "rspec/trace"
 
+OpenTelemetry::SDK.configure
 RSpec::Trace::Consumer.new($stdin).run

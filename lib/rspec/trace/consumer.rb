@@ -9,9 +9,6 @@ module RSpec
     class Consumer
       def initialize(input)
         @input = input
-        OpenTelemetry::SDK.configure do |c|
-          c.service_name = ENV.fetch("OTEL_SERVICE_NAME", "rspec")
-        end
         @tracer_provider = OpenTelemetry.tracer_provider
         @tracer_provider.sampler = OpenTelemetry::SDK::Trace::Samplers::ALWAYS_ON
         @tracer = @tracer_provider.tracer("rspec-trace-formatter", RSpec::Trace::VERSION)
