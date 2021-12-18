@@ -21,4 +21,4 @@ else
 end
 
 OpenTelemetry::SDK.configure
-RSpec::Trace::Consumer.new(input).run
+RSpec::Trace::Consumer.new(input, ENV["TRACEPARENT"]).run

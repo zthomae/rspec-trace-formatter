@@ -70,7 +70,8 @@ module RSpec
           c.id_generator = IdGenerator.new
         end
 
-        consumer = described_class.new(input)
+        traceparent = "00-66ab83152a0c9254cf70dc4c121faf59-ec6ad4430b12c493-01"
+        consumer = described_class.new(input, traceparent)
         allow(consumer).to receive(:exit)
 
         consumer.run

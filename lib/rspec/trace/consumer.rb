@@ -7,13 +7,13 @@ require "opentelemetry/exporter/otlp"
 module RSpec
   module Trace
     class Consumer
-      def initialize(input)
+      def initialize(input, traceparent_string = nil)
         @input = input
         @tracer_provider = OpenTelemetry.tracer_provider
         @tracer_provider.sampler = OpenTelemetry::SDK::Trace::Samplers::ALWAYS_ON
         @tracer = @tracer_provider.tracer("rspec-trace-formatter", RSpec::Trace::VERSION)
         @spans = []
-        @contexts = [OpenTelemetry::Context.current]
+        @contexts = [load_context_from_traceparent(traceparent_string)]
         @tokens = []
       end
 
@@ -104,6 +104,14 @@ module RSpec
       end
 
       private
+
+      def load_context_from_traceparent(traceparent_string)
+        return OpenTelemetry::Context.current unless traceparent_string
+
+        OpenTelemetry::Trace::Propagation::TraceContext.text_map_propagator.extract(
+          {"traceparent" => traceparent_string}
+        )
+      end
 
       def parse_event(line)
         event = JSON.parse(line, symbolize_names: true)
